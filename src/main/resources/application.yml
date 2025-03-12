@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: IdeaAI
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/IdeaAi
+    username: postgres
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migrations
+    baseline-on-migrate: true
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
